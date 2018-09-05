@@ -1,0 +1,103 @@
+/*** C# language ***/
+/* Convert myanmar unicode digit to ASCII digit */
+public string MMN_ENN(string str)
+{
+    StringBuilder _str = new StringBuilder(str);
+    _str.Replace('၀', '0');
+    _str.Replace('၁', '1');
+    _str.Replace('၂', '2');
+    _str.Replace('၃', '3');
+    _str.Replace('၄', '4');
+    _str.Replace('၅', '5');
+    _str.Replace('၆', '6');
+    _str.Replace('၇', '7');
+    _str.Replace('၈', '8');
+    _str.Replace('၉', '9');
+
+    return _str.ToString();
+}
+
+/* Convert ASCII digit to myanmar unicode digit */
+public string ENN_MMN(string str)
+{
+    StringBuilder _str = new StringBuilder(str);
+    _str.Replace('0', '၀');
+    _str.Replace('1', '၁');
+    _str.Replace('2', '၂');
+    _str.Replace('3', '၃');
+    _str.Replace('4', '၄');
+    _str.Replace('5', '၅');
+    _str.Replace('6', '၆');
+    _str.Replace('7', '၇');
+    _str.Replace('8', '၈');
+    _str.Replace('9', '၉');
+
+    return _str.ToString();
+}
+
+/*
+* Example
+* string mm_age = ENN_MMN("9,876,543,210");  
+* Output : ၉,၈၇၆,၅၄၃,၂၁၀
+*
+* string en_age = MMN_ENN("၉,၈၇၆,၅၄၃,၂၁၀"); 
+* Output : 9,876,543,210
+*/
+
+' ---  Microsoft Access VBA  ---
+' Convert myanmar unicode digit to ASCII digit
+Public Function en_number(str As String) As String
+    str = Replace(str, ChrW(4160), "0")
+    str = Replace(str, ChrW(4161), "1")
+    str = Replace(str, ChrW(4162), "2")
+    str = Replace(str, ChrW(4163), "3")
+    str = Replace(str, ChrW(4164), "4")
+    str = Replace(str, ChrW(4165), "5")
+    str = Replace(str, ChrW(4166), "6")
+    str = Replace(str, ChrW(4167), "7")
+    str = Replace(str, ChrW(4168), "8")
+    str = Replace(str, ChrW(4169), "9")
+    en_number = str
+End Function
+
+' Convert ASCII digit to myanmar unicode digit
+Public Function mm_number(str As String) As String
+    str = Replace(str, "0", ChrW(4160))
+    str = Replace(str, "1", ChrW(4161))
+    str = Replace(str, "2", ChrW(4162))
+    str = Replace(str, "3", ChrW(4163))
+    str = Replace(str, "4", ChrW(4164))
+    str = Replace(str, "5", ChrW(4165))
+    str = Replace(str, "6", ChrW(4166))
+    str = Replace(str, "7", ChrW(4167))
+    str = Replace(str, "8", ChrW(4168))
+    str = Replace(str, "9", ChrW(4169))
+    mm_number = str
+End Function
+
+' --- Example ---
+' Convert myanmar unicode digit to ASCII digit
+txtEnNumber.Value = en_number(txtInput.Value)
+
+' Convert ASCII digit to myanmar unicode digit
+txtMyNumber.Value = mm_number(txtInput.Value)
+
+' --- Search char code ---
+' AscW("?") 
+
+/* --- PHP --- */
+/* Convert ASCII digit to myanmar unicode digit */
+function enn_mmn($str){
+    return str_replace(['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], ['၀', '၁', '၂', '၃', '၄','၅','၆','၇','၈','၉'], $str);
+}
+
+/* Convert myanmar unicode digit to ASCII digit */
+function mmn_enn($str){
+    return str_replace(['၀', '၁', '၂', '၃', '၄','၅','၆','၇','၈','၉'], ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'], $str);
+}
+
+echo enn_mmn("9,876,543,210");
+// Output : ၉,၈၇၆,၅၄၃,၂၁၀
+
+echo mmn_enn("၉,၈၇၆,၅၄၃,၂၁၀");
+// Output : 9,876,543,210
