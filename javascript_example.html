@@ -1,0 +1,58 @@
+<html>
+    <body>
+        <table>
+            <tr>
+                <td><label>Source</label></td>
+                <td><input type="text" value="" id="source"/></td>
+            </tr>
+            <tr>
+                <td><label>Destination</label></td>
+                <td><input type="text" value="" id="destination"/></td>
+            </tr>
+            <tr>
+                <td><button onclick="convertToEnNumber();">English Number</button></td>
+                <td><button onclick="convertToMyNumber();">Myanmar Number</button></td>
+            </tr>
+        </table>
+		<script>
+			function EnNumber(str) {
+				str=str.replaceAll('၀', '0');
+				str=str.replaceAll('၁', '1');
+				str=str.replaceAll('၂', '2');
+				str=str.replaceAll('၃', '3');
+				str=str.replaceAll('၄', '4');
+				str=str.replaceAll('၅', '5');
+				str=str.replaceAll('၆', '6');
+				str=str.replaceAll('၇', '7');
+				str=str.replaceAll('၈', '8');
+				str=str.replaceAll('၉', '9');
+				return str;
+			}
+
+            function MyNumber(str) {
+				str=str.replaceAll('0', '၀');
+				str=str.replaceAll('1', '၁');
+				str=str.replaceAll('2', '၂');
+				str=str.replaceAll('3', '၃');
+				str=str.replaceAll('4', '၄');
+				str=str.replaceAll('5', '၅');
+				str=str.replaceAll('6', '၆');
+				str=str.replaceAll('7', '၇');
+				str=str.replaceAll('8', '၈');
+				str=str.replaceAll('9', '၉');
+				return str;
+			}
+
+            function convertToEnNumber() {
+                let source = document.getElementById("source").value;
+                document.getElementById("destination").value = EnNumber(source);
+            }
+
+            function convertToMyNumber() {
+                let source = document.getElementById("source").value;
+                document.getElementById("destination").value = MyNumber(source);
+            }
+            
+		</script>
+    </body>
+</html>
